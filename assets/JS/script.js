@@ -253,6 +253,24 @@ function populateQuestion() {
     answerD.innerHTML = quiz.answers.d;
 }
 
+// function answerClicked
+function answerClicked(answer) {
+    var quiz = myQuestions[currentQuestionNumber];
+    if (quiz.correctAnswer === answer) {
+        currentScore++;
+        console.log("correct answer");
+    } else {
+        console.log("wrong answer");
+    }
+
+    if (currentQuestionNumber + 1 === myQuestions.length) {
+        prompUserInitials();
+    } else {
+        currentQuestionNumber++;
+        populateQuestion();
+    }
+}
+
 
 
 
