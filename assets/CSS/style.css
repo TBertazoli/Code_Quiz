@@ -18,7 +18,11 @@ header {
     display: flex;
 }
 
-.page_content {}
+.hide {
+    display: none;
+}
+
+
 
 .multiple_choices {
     display: flex;
