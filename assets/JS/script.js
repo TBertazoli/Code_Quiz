@@ -225,10 +225,10 @@ var currentQuestionNumber = 0;
 var currentScore = 0;
 
 
-// click event listener
+// click event listener and call startQuiz function
 document.getElementById("start_quiz").addEventListener("click", startQuiz);
 
-// function  
+// function  startQuiz
 function startQuiz() {
     var startQuizWrapper = document.getElementById("start_quiz_wrapper");
     startQuizWrapper.classList.add("hide");
@@ -237,6 +237,21 @@ function startQuiz() {
     populateQuestion();
 }
 
+// function populateQuestions
+function populateQuestion() {
+    var quiz = myQuestions[currentQuestionNumber];
+    console.log(quiz.question);
+    var questionElement = document.getElementById("question");
+    questionElement.innerHTML = quiz.question;
+    var answerA = document.getElementById("answer_a");
+    answerA.innerHTML = quiz.answers.a;
+    var answerB = document.getElementById("answer_b");
+    answerB.innerHTML = quiz.answers.b;
+    var answerC = document.getElementById("answer_c");
+    answerC.innerHTML = quiz.answers.c;
+    var answerD = document.getElementById("answer_d");
+    answerD.innerHTML = quiz.answers.d;
+}
 
 
 
