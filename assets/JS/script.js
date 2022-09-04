@@ -22,19 +22,19 @@ var myQuestions = [
         correctAnswer: 'C'
     },
 
-    //     {
-    //         question:
-    //             answers: {
-    //         a:
-    //             b:
-    //         c:
-    //             d:
-    //     },
-    //     correctAnswer:
-    // },
+    {
+        question: "Which of the following type of variable is visible everywhere in your JavaSCript code?",
+        answers: {
+            a: "A: Local variable",
+            b: "B: Global variable",
+            c: "C: Both of the above",
+            d: "D: None of the above"
+        },
+        correctAnswer: 'B'
+    },
 
     // {
-    //     question:
+    //     question:" Which of the following type of variable is visible everywhere in your JavaScript code?"
     //     answers: {
     //         a:
     //         b:
@@ -88,145 +88,30 @@ var myQuestions = [
     //     correctAnswer:
     // },
 
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
 ];
 
 var currentQuestionNumber = 0;
 var currentScore = 0;
+var timeLeft = myQuestions.length * 15; // 15 seconds per question
+var timerEl = document.getElementById('timer');
 
 
 // click event listener and call startQuiz function
 document.getElementById("start_quiz").addEventListener("click", startQuiz);
+
+function countdown() {
+    timerEl.textContent = timeLeft + ' seconds remaining';
+    timeLeft--;
+    var timeInterval = setInterval(function () {
+        timerEl.textContent = timeLeft + ' seconds remaining';
+        if (timeLeft <= 0) {
+            clearInterval(timeInterval);
+            prompUserInitials();
+        }
+        timeLeft--;
+    }, 1000);
+}
+
 
 // function  startQuiz
 function startQuiz() {
@@ -234,6 +119,7 @@ function startQuiz() {
     startQuizWrapper.classList.add("hide");
     var questionsWrapper = document.getElementById("questions_wrapper");
     questionsWrapper.classList.remove("hide");
+    countdown();
     populateQuestion();
 }
 
@@ -257,21 +143,40 @@ function populateQuestion() {
 function answerClicked(answer) {
     var quiz = myQuestions[currentQuestionNumber];
     if (quiz.correctAnswer === answer) {
+        document.getElementById("answer_output").innerHTML = "Correct";
         currentScore++;
-        console.log("correct answer");
     } else {
-        console.log("wrong answer");
+        document.getElementById("answer_output").innerHTML = "Wrong";
+        timeLeft = timeLeft - 10;
     }
 
     if (currentQuestionNumber + 1 === myQuestions.length) {
         prompUserInitials();
     } else {
         currentQuestionNumber++;
+        // change css to give user feedback
+        // set 1 second timer and then call function below
         populateQuestion();
     }
 }
 
+//funtion prompUserInitials
+function prompUserInitials() {
+    var questionsWrapper = document.getElementById("questions_wrapper");
+    questionsWrapper.classList.add("hide");
+    var userInfo = document.getElementById("user_info");
+    userInfo.classList.remove("hide");
+}
 
+//function promptFinalScore
+function promptFinalScore() {
+    var questionsWrapper = document.getElementById("questions_wrapper");
+    questionsWrapper.classList.add("hide");
+    var userInfo = document.getElementById("user_info");
+    userInfo.classList.add("hide");
+    var finalScore = document.getElementById("final_score");
+    finalScore.classList.remove("hide");
+}
 
 
 
