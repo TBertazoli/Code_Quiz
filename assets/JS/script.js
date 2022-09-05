@@ -94,10 +94,25 @@ var currentQuestionNumber = 0;
 var currentScore = 0;
 var timeLeft = myQuestions.length * 15; // 15 seconds per question
 var timerEl = document.getElementById('timer');
+var answerA = document.getElementById("answer_A");
+var answerB = document.getElementById("answer_B");
+var answerC = document.getElementById("answer_C");
+var answerD = document.getElementById("answer_D");
+
 
 
 // click event listener and call startQuiz function
 document.getElementById("start_quiz").addEventListener("click", startQuiz);
+
+// function  startQuiz
+function startQuiz() {
+    var startQuizWrapper = document.getElementById("start_quiz_wrapper");
+    startQuizWrapper.classList.add("hide");
+    var questionsWrapper = document.getElementById("questions_wrapper");
+    questionsWrapper.classList.remove("hide");
+    // countdown();
+    populateQuestion();
+}
 
 function countdown() {
     timerEl.textContent = timeLeft + ' seconds remaining';
@@ -112,52 +127,50 @@ function countdown() {
     }, 1000);
 }
 
-
-// function  startQuiz
-function startQuiz() {
-    var startQuizWrapper = document.getElementById("start_quiz_wrapper");
-    startQuizWrapper.classList.add("hide");
-    var questionsWrapper = document.getElementById("questions_wrapper");
-    questionsWrapper.classList.remove("hide");
-    countdown();
-    populateQuestion();
-}
-
 // function populateQuestions
 function populateQuestion() {
     var quiz = myQuestions[currentQuestionNumber];
     console.log(quiz.question);
     var questionElement = document.getElementById("question");
     questionElement.innerHTML = quiz.question;
-    var answerA = document.getElementById("answer_a");
     answerA.innerHTML = quiz.answers.a;
-    var answerB = document.getElementById("answer_b");
     answerB.innerHTML = quiz.answers.b;
-    var answerC = document.getElementById("answer_c");
     answerC.innerHTML = quiz.answers.c;
-    var answerD = document.getElementById("answer_d");
     answerD.innerHTML = quiz.answers.d;
 }
 
 // function answerClicked
 function answerClicked(answer) {
     var quiz = myQuestions[currentQuestionNumber];
-    if (quiz.correctAnswer === answer) {
-        document.getElementById("answer_output").innerHTML = "Correct";
+    var isCorrectAnswer = quiz.correctAnswer === answer;
+    if (isCorrectAnswer) {
+        document.getElementById("answer_" + answer).classList.add("correct_answer");
         currentScore++;
     } else {
-        document.getElementById("answer_output").innerHTML = "Wrong";
+        document.getElementById("answer_" + answer).classList.add("wrong_answer");
         timeLeft = timeLeft - 10;
     }
+    enableDisableButton(true);
 
-    if (currentQuestionNumber + 1 === myQuestions.length) {
-        prompUserInitials();
-    } else {
-        currentQuestionNumber++;
-        // change css to give user feedback
-        // set 1 second timer and then call function below
-        populateQuestion();
-    }
+
+
+
+    // if (currentQuestionNumber + 1 === myQuestions.length) {
+    //     prompUserInitials();
+    // } else {
+    //     currentQuestionNumber++;
+
+    //     // change css to give user feedback
+    //     // set 1 second timer and then call function below
+    //     populateQuestion();
+    // }
+}
+
+function enableDisableButton(isDisable) {
+    answerA.disabled = isDisable;
+    answerB.disabled = isDisable;
+    answerC.disabled = isDisable;
+    answerD.disabled = isDisable;   
 }
 
 //funtion prompUserInitials
@@ -166,17 +179,23 @@ function prompUserInitials() {
     questionsWrapper.classList.add("hide");
     var userInfo = document.getElementById("user_info");
     userInfo.classList.remove("hide");
+    var userInitials = document.getElementById('initials_button');
+    var stringInitials = JSON.stringify(userInitials);
+    localStorage.setItem("User Initials", stringInitials);
+    console.log(localStorage);
+    // promptFinalScore();
 }
 
 //function promptFinalScore
-function promptFinalScore() {
-    var questionsWrapper = document.getElementById("questions_wrapper");
-    questionsWrapper.classList.add("hide");
-    var userInfo = document.getElementById("user_info");
-    userInfo.classList.add("hide");
-    var finalScore = document.getElementById("final_score");
-    finalScore.classList.remove("hide");
-}
+// function promptFinalScore() {
+//     var questionsWrapper = document.getElementById("questions_wrapper");
+//     questionsWrapper.classList.add("hide");
+//     var userInfo = document.getElementById("user_info");
+//     userInfo.classList.add("hide");
+//     var finalScore = document.getElementById("final_score");
+//     finalScore.classList.remove("hide");
+
+// }
 
 
 

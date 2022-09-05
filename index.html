@@ -10,39 +10,47 @@
 </head>
 
 <body>
+    <!-- Start Quiz div -->
     <div id="start_quiz_wrapper">
         <header>
             <h1 class="page_title">Code Quiz</h1>
             <div class="description">
                 <p>Welcome to Java Script Code Quiz. Click in the button bellow to start the quiz.</p>
-                <p>This quiz consist of 10 question of multiple choices. You have 1 min to complete all questions. Wrong
-                    answers will deduct 10sec of your time</p>
+                <p>This quiz consist of 10 question of multiple choices. You have 1 min to complete all questions.
+                    Wrong
+                    answers will deduct 10 sec of your time</p>
             </div>
             <div>
-                <button class="button" id="start_quiz" type="submit">Start</button>
+                <button class="start_button" id="start_quiz" type="submit">Start</button>
             </div>
         </header>
     </div>
-    <div id="questions_wrapper" class="hide">
-        <main class="page_content">
-            <div class="question">
-                <div id="timer"></div>
-                <h2 id="question"></h2>
-            </div>
-            <div class="answers multiple_choices">
-                <button class="answer_button" id="answer_a" type="button" onclick="answerClicked('A')"></button>
-                <button class="answer_button" id="answer_b" type="button" onclick="answerClicked('B')"></button>
-                <button class="answer_button" id="answer_c" type="button" onclick="answerClicked('C')"></button>
-                <button class="answer_button" id="answer_d" type="button" onclick="answerClicked('D')"></button>
-            </div>
-            <div id="answer_output"></div>
-        </main>
+    <!-- start questions div -->
+    <div id="timer" class="timer"></div>
+    <div id="questions_wrapper" class="page_content hide">
+        <div class="question">
+            <h2 id="question"></h2>
+        </div>
+        <div class="answers multiple_choices">
+            <button class="answer_button" id="answer_A" type="button" onclick="answerClicked('A')"></button>
+            <button class="answer_button" id="answer_B" type="button" onclick="answerClicked('B')"></button>
+            <button class="answer_button" id="answer_C" type="button" onclick="answerClicked('C')"></button>
+            <button class="answer_button" id="answer_D" type="button" onclick="answerClicked('D')"></button>
+        </div>
+        <div id="answer_output"></div>
     </div>
-    <div id="user_info" class="hide">
-        <h2>User Initials</h2>
-        <div class="initials_box"></div>
-        <button class="initials_button" id="initials_button" type="submit">Send</button>
+
+    <!-- user info div -->
+    <div class="user_info hide">
+        <form>
+            <label for="initials" class="enter_initials">Enter Initials</label></br>
+            <input type="text" id="initials">
+        </form></br>
+        <button class="initials_button" id="initials_button" type="submit">Submit</button>
+        </form>
     </div>
+
+    <!-- final score div -->
     <div id="final_score" class="hide"></div>
 
     <script src="./assets/JS/script.js"></script>

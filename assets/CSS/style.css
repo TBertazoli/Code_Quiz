@@ -1,5 +1,7 @@
 body {
     background-color: skyblue;
+    display: flex;
+    justify-content: center;
 }
 
 header {
@@ -7,24 +9,85 @@ header {
     font-size: 20px;
 }
 
-
-.button {
-    font: 40px bolder;
+.start_button {
+    font: 30px bolder;
     padding: 10px;
     margin: 10px;
-}
 
-.main {
-    display: flex;
 }
 
 .hide {
     display: none;
 }
 
+.timer {
+    position: absolute;
+    right: 20px;
+}
+
+/* .page_content {
+   display:flex;
+   flex-direction: column;
+} */
 
 
 .multiple_choices {
     display: flex;
     flex-direction: column;
 }
+
+.answer_button {
+    align-items: center;
+    background-color: initial;
+    background-image: linear-gradient(rgba(179, 132, 201, .84), rgba(57, 31, 91, .84) 50%);
+    border-radius: 42px;
+    border-width: 0;
+    box-shadow: rgba(57, 31, 91, 0.24) 0 2px 2px, rgba(179, 132, 201, 0.4) 0 8px 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    font-family: Quicksand, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    justify-content: center;
+    letter-spacing: .04em;
+    line-height: 16px;
+    margin: 10px;
+    padding: 18px 18px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: rgba(255, 255, 255, 0.4) 0 0 4px, rgba(255, 255, 255, 0.2) 0 0 12px, rgba(57, 31, 91, 0.6) 1px 1px 4px, rgba(57, 31, 91, 0.32) 4px 4px 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+}
+
+.answer_button:hover {
+    background-image: linear-gradient(#B384C9, #391F5B 50%);
+}
+
+.correct_answer, .correct_answer:hover {
+    background-image: linear-gradient(rgba(134, 201, 132, 0.84), rgba(42, 156, 51, 0.84) 50%);
+}
+
+.wrong_answer, .wrong_answer:hover {
+        background-image: linear-gradient(rgba(236, 154, 143, 0.84), rgba(209, 64, 64, 0.84) 50%);
+}
+/* .enter_initials {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.initials_box {
+    border: black solid 3px;
+    background-color: white;
+    padding: 30px;
+} */
+
+/* .initials_button {
+    font-size: 20px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 5px;
+} */
