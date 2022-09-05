@@ -3,25 +3,23 @@ var myQuestions = [
     {
         question: "How Java Script can be used to change the HTML content?",
         answers: {
-            a: 'A: document.getElementById("demo").innsertHTML = "Hello"',
-            b: 'B: document.getElementById("demo").innerHTML = "Hello World"',
-            c: 'C: document.getElementById("demo").style.fontSize = "35px"',
-            d: 'D: document.getElementById("demo").addHTML = "Hello"'
+            a: "A: document.getElementById('demo').innsertHTML = 'Hello';",
+            b: "B: document.getElementById('demo').innerHTML = 'Hello World';",
+            c: "C: document.getElementById('demo').style.fontSize = '35px';",
+            d: "D: document.getElementById('demo').addHTML = 'Hello';"
         },
-        correctAnswer: 'B'
+        correctAnswer: "B"
     },
-
     {
         question: "Given the code below: </br></br> var myCar = \"Hyundai\"; </br> function cars () { </br > &nbsp&nbsp var myCar = \"Toyota\"; </br > &nbsp&nbsp console.log(myCar);</br>}</br>What will show in the console?",
         answers: {
-            a: 'A: myCar',
-            b: 'B: Hyundai',
-            c: 'C: Toyota',
-            d: 'D: cars'
+            a: "A: myCar",
+            b: "B: Hyundai",
+            c: "C: Toyota",
+            d: "D: cars"
         },
-        correctAnswer: 'C'
+        correctAnswer: "C"
     },
-
     {
         question: "Which of the following type of variable is visible everywhere in your JavaSCript code?",
         answers: {
@@ -30,64 +28,78 @@ var myQuestions = [
             c: "C: Both of the above",
             d: "D: None of the above"
         },
-        correctAnswer: 'B'
+        correctAnswer: "B"
     },
-
-    // {
-    //     question:" Which of the following type of variable is visible everywhere in your JavaScript code?"
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
-    // {
-    //     question:
-    //     answers: {
-    //         a:
-    //         b:
-    //         c:
-    //         d:
-    //     },
-    //     correctAnswer:
-    // },
-
+    {
+        question: "Which of the following statements is an example of css style in Java Script?",
+        answers: {
+            a: "A: document.getElementById('demo').innerHTML = cars;",
+            b: "B: document.addElement.text = 'hello';",
+            c: "C: document.getElementById ('myText'). className = 'anyclass';",
+            d: "D: document.getElementById(myText).className = 'anyclass';"
+        },
+        correctAnswer: "C"
+    },
+    {
+        question: "Which of the following function of String object returns the calling string value converted to lower case?",
+        answers: {
+            a: "A: toLowerCase()",
+            b: "B: substring()",
+            c: "C: toupperCase()",
+            d: "D: toString()"
+        },
+        correctAnswer: "A"
+    },
+    {
+        question: "Which of the following is an example of an array?",
+        answers: {
+            a: "A: var seasonOfTheYear = {Winter,Spring,Summer,Fall};",
+            b: "B: var seasonoftheyear = (Winter, Spring, Summer, Fall);",
+            c: "C: var seasonOfTheYear = [Winter, Spring, Summer, Fall];",
+            d: "D: var seasonOfTheYear = ['Winter', 'Spring', 'Summer', 'Fall'];"
+        },
+        correctAnswer: "D"
+    },
+    {
+        question: "Which of the folowing is used to assign a value to a variable?",
+        answers: {
+            a: "A: +",
+            b: "B: ===",
+            c: "C: ()",
+            d: "D: ="
+        },
+        correctAnswer: "D"
+    },
+    {
+        question: "How does a for loop start?",
+        answers: {
+            a: "A: for(i=0)",
+            b: "B: for(i=0; i<=8)",
+            c: "C: for(i=0; i<=8; i++)",
+            d: "D: for(i<=8; i++)"
+        },
+        correctAnswer: "C"
+    },
+    {
+        question: "What is the correct syntax for referring to an external script called 'quiz.js'?",
+        answers: {
+            a: "A: <script src='quiz.js'>",
+            b: "B: <script href='quiz.js'>",
+            c: "C: <script name='quiz.js'>",
+            d: "D: <script='quiz.js'>"
+        },
+        correctAnswer: "A"
+    },
+    {
+        question: "What will the following code Return: Boolean(8>10)?",
+        answers: {
+            a: "A:Undefined",
+            b: "B: true",
+            c: "C: yes",
+            d: "D: false"
+        },
+        correctAnswer: "D"
+    },
 ];
 
 var currentQuestionNumber = 0;
@@ -170,7 +182,7 @@ function enableDisableButton(isDisable) {
     answerA.disabled = isDisable;
     answerB.disabled = isDisable;
     answerC.disabled = isDisable;
-    answerD.disabled = isDisable;   
+    answerD.disabled = isDisable;
 }
 
 //funtion prompUserInitials
