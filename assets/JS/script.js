@@ -200,19 +200,45 @@ function prompUserInitials() {
 function submitScore() {
     var userInitials = document.getElementById('initials').value;
     localStorage.setItem(userInitials, currentScore);
-    console.log(localStorage);
-    // promptFinalScore();
-
+    promptFinalScore();
 }
+
 //function promptFinalScore
-function promptFinalScore() { 
+function promptFinalScore() {
     var userInfo = document.getElementById("user_info");
     userInfo.classList.add("hide");
     var finalScore = document.getElementById("final_score");
     finalScore.classList.remove("hide");
-    
 
+    var keys = Object.keys(localStorage);
+    var scoreList = document.getElementById("score_list");
+    var highScore = [];
+    keys.forEach(key => {
+        highScore.push({ "initials": key, "score": localStorage.getItem(key) })
+
+    })
+    highScore.sort(function (a, b) {
+        return b.score - a.score;
+    });
+    highScore.forEach(item => {
+        var li = document.createElement("li");
+        li.innerHTML = item.initials + " - " + item.score;
+        scoreList.appendChild(li);
+    });
 }
+
+function goBack() {
+    var finalScore = document.getElementById("final_score");
+    finalScore.classList.add("hide");
+    var startQuizWrapper = document.getElementById("start_quiz_wrapper");
+    startQuizWrapper.classList.remove("hide");
+}
+
+function clearHighScores() {
+    localStorage.clear();
+    goBack();
+}
+
 
 
 
