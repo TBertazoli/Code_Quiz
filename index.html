@@ -41,17 +41,22 @@
     </div>
 
     <!-- user info div -->
-    <div class="user_info hide">
-        <form>
-            <label for="initials" class="enter_initials">Enter Initials</label></br>
+    <div class="user_info hide" id="user_info">
+        <div class="info_title">
+            <h2>All done!</h2>
+            <p id="final_score_output"></p>
+        </div>
+        <form class="enter_initials">
+            <label for="initials">Enter your initials:</label>
             <input type="text" id="initials">
-        </form></br>
-        <button class="initials_button" id="initials_button" type="submit">Submit</button>
+            <button class="initials_button" type="button" onclick="submitScore()">Submit</button>
         </form>
     </div>
 
     <!-- final score div -->
-    <div id="final_score" class="hide"></div>
+    <div id="final_score" class="hide">
+
+    </div>
 
     <script src="./assets/JS/script.js"></script>
 </body>

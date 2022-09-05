@@ -74,9 +74,14 @@ header {
 .wrong_answer, .wrong_answer:hover {
         background-image: linear-gradient(rgba(236, 154, 143, 0.84), rgba(209, 64, 64, 0.84) 50%);
 }
-/* .enter_initials {
+
+.user_info {
+    font-size: 25px;
+}
+
+.enter_initials {
+    /* display:flex; */
     font-size: 20px;
-    margin-top: 20px;
 }
 
 .initials_box {
@@ -85,9 +90,6 @@ header {
     padding: 30px;
 } */
 
-/* .initials_button {
-    font-size: 20px;
-    margin: auto;
-    margin-top: 20px;
-    padding: 5px;
-} */
+.initials_button {
+    font-size: 15px;
+} 
