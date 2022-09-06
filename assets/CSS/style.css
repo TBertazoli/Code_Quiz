@@ -16,7 +16,7 @@ header {
 .page_title {
     background-image: linear-gradient(rgba(150, 229, 235, 0.84), rgba(22, 172, 231, 0.84) 50%);
     width: 200px;
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 
 .start_button {
@@ -36,6 +36,7 @@ header {
     font-weight: bold;
     padding: 5px;
 }
+
 .page_content {
     display: flex;
     align-items: center;
@@ -94,7 +95,7 @@ header {
 }
 
 .enter_initials {
-       font-size: 20px;
+    font-size: 20px;
 }
 
 .initials_box {
@@ -105,4 +106,75 @@ header {
 
 .initials_button {
     font-size: 15px;
+}
+
+/*MEDIA QUERY FOR SMALLER DESKTOPS SCREENS*/
+/*this will be applied on any screen smaller than 980px*/
+@media screen and (max-width:980px) {
+
+    .page_title,
+    .answer_button {
+        font-size: 16px;
+    }
+
+    .start_button {
+        font-size: 20px;
+    }
+
+    .page_content {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .timer {
+        font-size: 15px;
+    }
+
+}
+
+/*MEDIA QUERY FOR TABLETS AND SMALLER*/
+/*this will be applied on any screen between 768px to 575px*/
+@media screen and (max-width:768px) {
+
+    .page_title,
+    .answer_button {
+        font-size: 12px;
+    }
+
+    .start_button {
+        font-size: 20px;
+    }
+
+    .page_content {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .timer {
+        font-size: 12px;
+    }
+
+}
+
+/*MEDIA QUERIE FOR MOBILE PHONES AND SMALLER*/
+/*this will be applied on any screen smaller than 575px*/
+@media screen and (max-width:575px) {
+
+    .page_title,
+    .answer_button {
+        font-size: 12px;
+    }
+
+    .start_button {
+        font-size: 20px;
+    }
+
+    .page_content {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+
+    .timer {
+        font-size: 12px;
+    }
 }
