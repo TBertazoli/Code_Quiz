@@ -118,6 +118,7 @@ var questionsWrapper = document.getElementById("questions_wrapper");
 var userInfo = document.getElementById("user_info");
 var finalScore = document.getElementById("final_score");
 var timeInterval = null;
+var scoreList = document.getElementById("score_list");
 
 
 // click event listener and call startQuiz function
@@ -138,6 +139,10 @@ function reset() {
     currentQuestionNumber = 0;
     hideTimer.classList.remove("hide");
     document.getElementById('initials').value = "";
+    while (scoreList.firstChild) {
+        scoreList.removeChild(scoreList.firstChild);
+    }
+
 }
 
 //function countdown
@@ -222,7 +227,6 @@ function promptFinalScore() {
     finalScore.classList.remove("hide");
 
     var keys = Object.keys(localStorage);
-    var scoreList = document.getElementById("score_list");
     var highScore = [];
     keys.forEach(key => {
         highScore.push({ "initials": key, "score": localStorage.getItem(key) })
